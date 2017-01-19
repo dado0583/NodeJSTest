@@ -2,19 +2,7 @@ var express = require('express');
 var app = express();
 var PORT = 3000;
 
-var middleware = {
-	requireAuthentication: function(req, res, next) {
-		console.log('private route hint');
-		console.log(req.method);
-		console.log(req.query);
-
-		if(req.query.id === 'dave'){
-			next();
-		} else {
-			res.send('Unauthorized');
-		}
-	}
-};
+var middleware = require('./middleware.js');
 
 app.use(middleware.requireAuthentication);
 
