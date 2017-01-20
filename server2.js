@@ -60,6 +60,8 @@ app.post('/todos/:id', function(req, res) {
 	var body = req.body;
 	console.log(JSON.stringify(body));
 
+	todos.push(body);
+
 	res.json(body);
 });
 
